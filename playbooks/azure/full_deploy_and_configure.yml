@@ -38,7 +38,7 @@
     - cisco.catalystwan.sync_pnp_edges
 
 
-# Deploying edges requires vbond_mgmt_public_ip, otp and uuid!
+# Deploying edges requires validator_mgmt_public_ip, otp and uuid!
 - name: Deploy Edge devices based on generated boostrap configuration
   hosts: localhost
   gather_facts: false

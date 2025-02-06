@@ -2,7 +2,7 @@
 # GNU General Public License v3.0+ (see LICENSE or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 
-# Minimal configuration file to deploy Manager, vBond, vSmart and cEdge instances
+# Minimal configuration file to deploy Manager, Validator, vSmart and cEdge instances
 
 #######################################
 #     Required configuration data     #
@@ -58,12 +58,12 @@ manager_instances:
 #    site_id: 113
 
 
-# vBond
-aws_vbond_ami_id: null
-aws_vbond_instance_type: "c5.large"
+# Validator
+aws_validator_ami_id: null
+aws_validator_instance_type: "c5.large"
 
-vbond_instances:
-  - hostname: "{{ aws_resources_prefix }}-vBond"
+validator_instances:
+  - hostname: "{{ aws_resources_prefix }}-Validator"
     system_ip: 192.168.3.1
     site_id: 222
 
