@@ -8,4 +8,4 @@ manager_instances:
 template_data:
   admin_password: # admin_password
   admin_username: # admin_username
-  vsmart_hostname: # vsmart_hostname
+  controller_hostname: # controller_hostname

@@ -2,7 +2,7 @@
 # GNU General Public License v3.0+ (see LICENSE or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 
-# Minimal configuration file to deploy Manager, Validator, vSmart and cEdge instances
+# Minimal configuration file to deploy Manager, Validator, Controller and cEdge instances
 
 #######################################
 #     Required configuration data     #
@@ -65,16 +65,16 @@ validator_instances:
     site_id: "{{ site_id_validator }}"
 
 
-# vSmart
-az_vsmart_image_vhd_source: null
-az_vsmart_vm_size: "Standard_F4s_v2"
+# Controller
+az_controller_image_vhd_source: null
+az_controller_vm_size: "Standard_F4s_v2"
 
-site_id_vsmart: 300
+site_id_controller: 300
 
-vsmart_instances:
-  - hostname: "{{ az_resources_prefix }}-vSmart"
+controller_instances:
+  - hostname: "{{ az_resources_prefix }}-Controller"
     system_ip: 192.168.2.1
-    site_id: "{{ site_id_vsmart }}"
+    site_id: "{{ site_id_controller }}"
 
 
 ################################
