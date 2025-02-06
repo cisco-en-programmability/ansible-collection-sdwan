@@ -13,6 +13,7 @@ exclude_paths:
   - playbooks/aws/results/*
   - playbooks/azure/results/*
   - .github/workflows/requirements.yml
+  - .ansible
 # parseable: true
 # quiet: true
 # strict: true
