@@ -1,6 +1,6 @@
 ---
 
-vmanage_instances:
+manager_instances:
   - admin_password: # password
     admin_username: # user
     mgmt_public_ip: # mgmt_public_ip

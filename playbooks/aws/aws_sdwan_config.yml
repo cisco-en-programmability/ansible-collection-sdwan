@@ -2,7 +2,7 @@
 # GNU General Public License v3.0+ (see LICENSE or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 
-# Minimal configuration file to deploy vManage, vBond, vSmart and cEdge instances
+# Minimal configuration file to deploy Manager, vBond, vSmart and cEdge instances
 
 #######################################
 #     Required configuration data     #
@@ -41,19 +41,19 @@ ux20_deployment: true  # NOTE remove or set to false for UX1.0 deployment
 # do not use 'admin' as password since it will cause the playbooks to fail
 admin_password: null
 
-# vManage
-aws_vmanage_ami_id: null
-aws_vmanage_instance_type: "c5.9xlarge"
+# Manager
+aws_manager_ami_id: null
+aws_manager_instance_type: "c5.9xlarge"
 
-vmanage_instances:
-  - hostname: "{{ aws_resources_prefix }}-vManage"
+manager_instances:
+  - hostname: "{{ aws_resources_prefix }}-Manager"
     system_ip: 192.168.1.1
     site_id: 111
 # NOTE uncomment for cluster deployment
-#  - hostname: "{{ aws_resources_prefix }}-vManage2"
+#  - hostname: "{{ aws_resources_prefix }}-Manager2"
 #    system_ip: 192.168.4.1
 #    site_id: 112
-#  - hostname: "{{ aws_resources_prefix }}-vManage3"
+#  - hostname: "{{ aws_resources_prefix }}-Manager3"
 #    system_ip: 192.168.5.1
 #    site_id: 113
 

@@ -52,8 +52,8 @@ mock_roles:
   - cisco.catalystwan.onboarding_controllers
   - cisco.catalystwan.sync_pnp_edges
   - cisco.catalystwan.activate_edges
-  - cisco.catalystwan.vmanage_mode
-  - cisco.catalystwan.vmanage_version
+  - cisco.catalystwan.manager_mode
+  - cisco.catalystwan.manager_version
   - cisco.catalystwan.health_checks
   - cisco.catalystwan.config_groups
   - cisco.catalystwan.feature_profile_builder

@@ -20,9 +20,9 @@
     - configuration_file.yml
   vars:
     manager_authentication: &manager_authentication
-      url: "{{ (vmanage_instances | first).mgmt_public_ip }}"
-      username: "{{ (vmanage_instances | first).admin_username }}"
-      password: "{{ (vmanage_instances | first).admin_password }}"
+      url: "{{ (manager_instances | first).mgmt_public_ip }}"
+      username: "{{ (manager_instances | first).admin_username }}"
+      password: "{{ (manager_instances | first).admin_password }}"
   tasks:
     - name: Create AAA Template for vSmart devices
       cisco.catalystwan.feature_templates:
@@ -148,7 +148,7 @@
               - "Factory_Default_Logging_Template_V01"
           - name: "AAA_for_vSmart"
           - name: "Factory_Default_vSmart_OMP_Template"
-          - name: "Factory_Default_vSmart_vManage_Security_Template"
+          - name: "Factory_Default_vSmart_Manager_Security_Template"
           - name: "VPN_0_for_vSmart"
             subtemplates:
               - "VPN_0_Interface_for_vSmart"

@@ -74,7 +74,7 @@
 
 
 # Attach templates with running-config for all devices
-- name: Set vmanage mode for all devices
+- name: Set manager mode for all devices
   hosts: localhost
   gather_facts: false
   vars_files:
@@ -84,10 +84,10 @@
   vars:
     edge_instances: "{{ deployed_edge_instances }}"
   roles:
-    - cisco.catalystwan.vmanage_mode
+    - cisco.catalystwan.manager_mode
 
 # After assigning templates, we should add check there to verify that device is managed by templates
-# add to vmanage_mode role.
+# add to manager_mode role.
 
 # Health checks
 - name: Verify control connections and BFD, OMP
