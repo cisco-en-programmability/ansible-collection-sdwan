@@ -21,4 +21,4 @@
     edge_software_version_to_activate: null  # For Remote Images that don't report its version in repository, we have to provide that value directly
     remove_available_software_from_device: true
   roles:
-    - cisco.catalystwan.software_upgrades_remote
+    - cisco.catalystwan.software_upgrades
