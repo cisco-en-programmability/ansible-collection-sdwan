@@ -90,6 +90,24 @@ aws_cedge_instance_type: "c5.large"
 # based on the PnP Portal information.
 # See `deployment_edges_config` to inspect result
 
+# wan_edges parameter is an optional list that enables fine-tuning of edge deployments. By default, if wan_edges is
+# not specified, all devices from the PnP portal will be deployed. However, when wan_edges is defined, only listed
+# devices, excluding those marked with a foreign flag, will be deployed.
+#
+# Specifying the foreign, mgmt_public_ip, and transport_public_ip parameters indicates that the edge device has been
+# deployed elsewhere. In such cases Security Groups will be updated with the provided public IPs and the device will
+# be activated accordingly.
+#
+# Example usage:
+#   wan_edges:
+#     - uuid: DEVICE_UUID # this device will be deployed as usual
+#     - uuid: DEVICE_UUID # this device will be ignored during deployment
+#       foreign: true
+#     - uuid: DEVICE_UUID # this device will be treated as deployed outside of cluster
+#       foreign: true
+#       mgmt_public_ip: PUBLIC_IP
+#       transport_public_ip: PUBLIC_IP
+
 
 ##########################################
 #       Reusable deployment facts        #
