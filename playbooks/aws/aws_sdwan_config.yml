@@ -16,7 +16,6 @@ organization_name: null
 #####################################
 
 aws_region: us-east-1
-aws_availibility_zone: us-east-1a
 aws_resources_prefix: "{{ organization_name }}"
 
 # aws_allowed_subnets is list of subnets, that are allowed to access your instances via security group in AWS

@@ -14,7 +14,6 @@
     required_variables:
       organization_name: "{{ organization_name | default() }}"
       aws_region: "{{ aws_region | default() }}"
-      aws_availibility_zone: "{{ aws_availibility_zone | default() }}"
       aws_allowed_subnets: "{{ aws_allowed_subnets | default() }}"
       aws_vmanage_ami_id: "{{ aws_vmanage_ami_id | default() }}"
       aws_vbond_ami_id: "{{ aws_vbond_ami_id | default() }}"
