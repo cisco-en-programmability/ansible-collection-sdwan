@@ -1,0 +1,25 @@
+# Copyright 2024 Cisco Systems, Inc. and its affiliates
+# GNU General Public License v3.0+ (see LICENSE or https://www.gnu.org/licenses/gpl-3.0.txt)
+
+
+# Deploy VPC and network infrastucture on AWS
+- name: Deploy Cisco SD-WAN versions 20.13 on AWS
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    ./aws_sdwan_config.yml
+  tasks:
+  roles:
+    - cisco.sdwan_deployment.aws_network_infrastructure
+
+
+# Deploying edges requires vbond_mgmt_public_ip, otp and uuid!
+- name: Deploy Edge devices based on generated boostrap configuration
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - ./aws_sdwan_config.yml
+    - "{{ results_path_controllers }}"
+    - "{{ deployment_edges_config }}"
+  roles:
+    - cisco.sdwan_deployment.aws_edges
