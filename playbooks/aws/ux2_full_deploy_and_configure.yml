@@ -38,7 +38,7 @@
     - cisco.catalystwan.sync_pnp_edges
 
 
-# Deploying edges requires vbond_mgmt_public_ip, otp and uuid!
+# Deploying edges requires validator_mgmt_public_ip, otp and uuid!
 - name: Deploy Edge devices based on generated boostrap configuration
   hosts: localhost
   gather_facts: false
@@ -63,16 +63,16 @@
 
 
 # Attach templates with running-config for all devices
-- name: Set vmanage mode for controllers
+- name: Set manager mode for controllers
   hosts: localhost
   gather_facts: false
   vars_files:
     - ./aws_sdwan_config.yml
     - "{{ results_path_controllers }}"
   roles:
-    - cisco.catalystwan.vmanage_mode
+    - cisco.catalystwan.manager_mode
 
-- name: Check if vManage version matches requirements
+- name: Check if Manager version matches requirements
   hosts: localhost
   gather_facts: false
   vars_files:
@@ -81,7 +81,7 @@
   vars:
     min_version_required: "20.13.1"
   roles:
-    - cisco.catalystwan.vmanage_version
+    - cisco.catalystwan.manager_version
 
 - name: Build feature profile data
   hosts: localhost
@@ -103,7 +103,7 @@
     - cisco.catalystwan.config_groups
 
 # After assigning templates, we should add check there to verify that device is managed by templates
-# add to vmanage_mode role.
+# add to manager_mode role.
 
 # Health checks
 - name: Verify control connections and BFD, OMP

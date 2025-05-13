@@ -16,9 +16,9 @@
       aws_region: "{{ aws_region | default() }}"
       aws_availibility_zone: "{{ aws_availibility_zone | default() }}"
       aws_allowed_subnets: "{{ aws_allowed_subnets | default() }}"
-      aws_vmanage_ami_id: "{{ aws_vmanage_ami_id | default() }}"
-      aws_vbond_ami_id: "{{ aws_vbond_ami_id | default() }}"
-      aws_vsmart_ami_id: "{{ aws_vsmart_ami_id | default() }}"
+      aws_manager_ami_id: "{{ aws_manager_ami_id | default() }}"
+      aws_validator_ami_id: "{{ aws_validator_ami_id | default() }}"
+      aws_controller_ami_id: "{{ aws_controller_ami_id | default() }}"
       aws_cedge_ami_id: "{{ aws_cedge_ami_id | default() }}"
       admin_password: "{{ admin_password | default() }}"
   tasks:
