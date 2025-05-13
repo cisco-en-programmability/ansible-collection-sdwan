@@ -98,6 +98,9 @@ aws_cedge_instance_type: "c5.large"
 # deployed elsewhere. In such cases Security Groups will be updated with the provided public IPs and the device will
 # be activated accordingly.
 #
+# You can specify the aws_region and aws_cedge_ami_id parameters to create Edges in AWS regions different from the
+# controllers. Note that each AWS region has its own unique AMI IDs.
+#
 # Example usage:
 #   wan_edges:
 #     - uuid: DEVICE_UUID # this device will be deployed as usual
