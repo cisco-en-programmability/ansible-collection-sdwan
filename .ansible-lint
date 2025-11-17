@@ -30,6 +30,7 @@ mock_modules:
   - cisco.catalystwan.feature_templates
   - cisco.catalystwan.device_templates_info
   - cisco.catalystwan.feature_templates_info
+  - cisco.catalystwan.multitenant_mode
 #   - zuul_return
 #   # note the foo.bar is invalid as being neither a module or a collection
 #   - fake_namespace.fake_collection.fake_module

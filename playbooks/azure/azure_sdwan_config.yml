@@ -30,6 +30,15 @@ az_allowed_subnets: null
 
 ux20_deployment: true  # NOTE remove or set to false for UX1.0 deployment
 
+# NOTE uncomment for multi-tenant deployment
+# multitenant_domain: "{{ organization_name }}"
+# tenants:
+#   - name: "tenant1"
+#     org_name: "{{ organization_name }}-tenant1"
+#     description: "tenant1"
+#     subdomain: "tenant1.{{ organization_name }}"
+#     wan_edge_forecast: 2
+
 ###############################
 #          Controllers        #
 ###############################

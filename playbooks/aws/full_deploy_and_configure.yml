@@ -23,8 +23,14 @@
     - "{{ results_path_controllers }}"
   roles:
     - cisco.catalystwan.api_ready
+    - role: cisco.catalystwan.multitenant_mode
+      when: tenants | default([])
     - cisco.catalystwan.administration_settings
     - cisco.catalystwan.onboarding_controllers
+    - role: cisco.catalystwan.vmanage_mode
+      when: tenants | default([])
+    - role: cisco.catalystwan.tenants
+      when: tenants | default([])
 
 
 - name: Generate bootstrap configuration for synced edges
