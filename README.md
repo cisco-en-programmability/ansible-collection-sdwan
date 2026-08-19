@@ -71,9 +71,11 @@ This project is cross-platform and can be set up on the following operating syst
 
 ### Python requirement
 
-Supported version: Python >=3.10+
+Current tested versions: Python 3.12-3.14
 
-- Due to [ansible-core==2.16](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix) requirement, this collection requires Python 3.10 or greater.
+- The latest tested stack is Ansible 14.3.1 with ansible-core 2.21.3.
+- Older automation environments remain governed by `meta/runtime.yml`; use the
+  current `requirements.txt` and `requirements.yml` for the maintained stack.
 
 ### Cloud authentication requirement
 
@@ -99,7 +101,7 @@ Current version of the full workflow for bringup SD-WAN assumes that users are f
 
 ## Installing this collection
 
-### Install by cloning this repostiory - recommended way
+### Install by cloning this repository - recommended way
 
 You can install collection by first cloning this repository:
 
@@ -108,12 +110,12 @@ git clone git@github.com:cisco-en-programmability/ansible-collection-sdwan.git
 ```
 
 Then setting your python environment.
-Recommended way: use supported version of Python (>=3.10) and set up your environment with:
+Recommended way: use a tested version of Python (3.12-3.14) and set up your environment with:
 
 ```bash
 python3 -m venv <your-venv-name>
 source <your-venv-name>/bin/activate
-pip install -r requirements.txt --no-deps
+python -m pip install -r requirements.txt
 ```
 
 And then install ansible requirements:
@@ -124,7 +126,7 @@ ansible-galaxy install -r requirements.yml
 
 ### Install with Ansible Galaxy
 
-***Note*** that when installing this collection with `ansible-galaxy` command, it will be placed inside your system collections path. That migth introduce additional complexity for using configuration files etc.
+***Note*** that when installing this collection with `ansible-galaxy`, it will be placed inside your configured collections path. That might introduce additional complexity for using configuration files.
 
 You can install this collection with the Ansible Galaxy CLI (requires `ansible` package installed)
 
@@ -133,7 +135,7 @@ ansible-galaxy collection install cisco.sdwan
 ```
 
 The python module dependencies are not installed by ansible-galaxy. They can be manually installed using pip.
-Recommended way: use supported version of Python (>=3.10) and set up your environment with:
+Recommended way: use a tested version of Python (3.12-3.14) and set up your environment with:
 
 ```bash
 python3 -m venv <your-venv-name>
@@ -143,14 +145,22 @@ source <your-venv-name>/bin/activate
 And then install python requirements:
 
 ```bash
-pip install -r requirements.txt --no-deps
+python -m pip install -r requirements.txt
 ```
 
 </br></br>
 
 ***Note***: For python packages installation troubleshooting see [python-packages-installation](#5-python-packages-installation)
 
-Verify that your ansible version is using python modules from vevn by using test playbook:
+For Azure deployments, also install the Python dependencies shipped by the
+installed `azure.azcollection` collection. The current provider dependency set
+contains a pinned prerelease package, so allow prereleases explicitly:
+
+```bash
+python -m pip install --pre -r ~/.ansible/collections/ansible_collections/azure/azcollection/requirements.txt
+```
+
+Verify that your Ansible version is using Python modules from the virtual environment by using the test playbook:
 
 For AWS:
 
@@ -287,16 +297,10 @@ Ansible defaults to installing the collection in `~/.ansible/collections`. This 
 
 ### 5. Python packages installation
 
-Python packages requirements are formed to include all dependencies.
-Therefore if you face issues with installation, note that there is known confict:
-
-```log
-    The user requested packaging
-    catalystwan 0.31.2 depends on packaging<24.0 and >=23.0
-    azure-cli-core 2.34.0 depends on packaging<22.0 and >=20.9
-```
-
-solved by using: `pip install -r requirements.txt --no-deps` command.
+Install `requirements.txt` normally so that pip resolves and installs transitive
+dependencies. The historical `packaging` conflict between catalystwan 0.31.2
+and azure-cli-core 2.34.0 no longer applies to the maintained dependency set.
+Install the Azure collection's own requirements with `--pre` as shown above.
 
 ---
 
