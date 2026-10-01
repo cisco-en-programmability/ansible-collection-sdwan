@@ -73,7 +73,7 @@ This project is cross-platform and can be set up on the following operating syst
 
 Current tested versions: Python 3.12-3.14
 
-- The latest tested stack is Ansible 14.3.1 with ansible-core 2.21.3.
+- The latest tested stack is Ansible 14.4.0 with ansible-core 2.21.4.
 - Older automation environments remain governed by `meta/runtime.yml`; use the
   current `requirements.txt` and `requirements.yml` for the maintained stack.
 

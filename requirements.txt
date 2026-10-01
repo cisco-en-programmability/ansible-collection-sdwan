@@ -1,6 +1,6 @@
 # Tested orchestration stack. Install the collections in requirements.yml
 # before installing their provider-specific Python dependencies.
-ansible==14.3.1
+ansible==14.4.0
 catalystwan==0.41.5.dev2
 
 # amazon.aws 11.4.0 runtime requirements
