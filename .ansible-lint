@@ -46,7 +46,7 @@ mock_roles:
   - cisco.sdwan_deployment.azure_controllers
   - cisco.sdwan_deployment.azure_edges
   - cisco.catalystwan.edge_params
-  - cisco.catalystwan.software_upgrades_remote
+  - cisco.catalystwan.software_upgrades
   - cisco.catalystwan.api_ready
   - cisco.catalystwan.administration_settings
   - cisco.catalystwan.cluster
